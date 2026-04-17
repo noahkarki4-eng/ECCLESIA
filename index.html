@@ -1,147 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Grace Ministry</title>
-<meta name="description" content="Grace Ministry Dubai - Sharing the Gospel, teaching the Word of God, and serving people with love and truth." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECCLESIA - Home</title>
 
 <style>
 
-/* Blink text */
-.blink-text {
-    animation: blink 1.2s infinite;
-}
-@keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0.3;}
-    100% {opacity: 1;}
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{display:flex;background:#f4f7f6;color:#1f2937;}
 
-/* Floating bubble */
-@keyframes floatBubble {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
-}
-
-/* WhatsApp floating */
-.whatsapp-container {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 9999;
-}
-
-.whatsapp-text {
-  background: #fff;
-  padding: 10px 16px;
-  border-radius: 12px;
-  font-size: 14px;
-  color: #333;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-}
-
-.floating-whatsapp {
-  width: 70px;
-  height: 70px;
-  background: #25d366;
-  border-radius: 50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow: 0 0 20px rgba(37,211,102,0.6);
-}
-
-/* Base */
-:root{
-  --primary:#1b4332;
-  --secondary:#2d6a4f;
-  --accent:#40916c;
-  --light:#f1f8f4;
-  --text:#1f2937;
-  --shadow:0 12px 30px rgba(0,0,0,0.08);
-  font-family: Arial, sans-serif;
-}
-
-body{
-  margin:0;
-  background: linear-gradient(180deg,#e9f5ec,#ffffff);
-  color:var(--text);
-}
-
-.stage{
-  max-width:1200px;
-  margin:auto;
+/* SIDEBAR */
+.sidebar{
+  width:260px;
+  height:100vh;
+  background:#0f172a;
+  color:white;
+  position:fixed;
   padding:20px;
+  overflow:auto;
 }
-
-/* Header */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-}
-
-nav a{
-  margin:0 12px;
+.sidebar h2{color:#38bdf8;margin-bottom:20px;}
+.sidebar a{
+  display:block;
+  color:white;
   text-decoration:none;
-  color:var(--primary);
-  font-weight:600;
+  padding:10px;
+  margin:6px 0;
+  border-radius:6px;
+  background:#1e293b;
 }
+.sidebar a:hover{background:#38bdf8;color:#000;}
 
-/* Cards */
-.card{
-  background:#fff;
-  border-radius:12px;
+/* MAIN */
+.main{
+  margin-left:260px;
   padding:20px;
-  box-shadow:var(--shadow);
-  margin-top:20px;
-}
-
-/* Hero */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.hero img{
   width:100%;
-  border-radius:12px;
 }
 
-/* Services */
+/* HERO */
+.hero{
+  background:#ffffff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+.hero h1{color:#0f172a;}
+.hero p{margin-top:10px;line-height:1.6;}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  gap:15px;
+  margin-top:20px;
+}
+.card{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+.card a{text-decoration:none;color:#0ea5e9;font-weight:bold;}
+
+/* NEWS */
+.news{
+  margin-top:20px;
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  overflow:hidden;
+}
+.news-feed{
+  display:flex;
+  flex-direction:column;
+  animation:scroll 12s linear infinite;
+}
+.news-item{
+  padding:10px;
+  border-bottom:1px solid #eee;
+}
+@keyframes scroll{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-50%);}
 }
 
-.item{
-  padding:15px;
-  background:var(--light);
+/* TESTIMONIAL */
+.testimonial-box{
+  margin-top:20px;
+  background:#fff;
+  padding:20px;
   border-radius:10px;
 }
-
-/* Footer */
-footer{
-  text-align:center;
-  margin-top:30px;
-  padding:20px;
-  color:#555;
+.testimonial{
+  display:none;
+  font-style:italic;
 }
+.testimonial.active{display:block;animation:fade 1s;}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 
-/* Responsive */
-@media(max-width:800px){
-  .hero{grid-template-columns:1fr;}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{position:relative;width:100%;height:auto;}
+  .main{margin-left:0;}
   .grid{grid-template-columns:1fr;}
 }
 
@@ -150,96 +113,86 @@ footer{
 
 <body>
 
-<div class="stage">
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>ECCLESIA</h2>
+  <a href="index.html">Home</a>
+  <a href="sermons.html">Sermons</a>
+  <a href="#">About (link)</a>
+  <a href="#">Prayer (link)</a>
+  <a href="#">Events (link)</a>
+  <a href="#">Donate (link)</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<header>
-  <div><strong>Grace Ministry</strong></div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#sermons">Sermons</a>
-    <a href="#mission">Mission</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+<!-- MAIN -->
+<div class="main">
 
-<section class="card hero" id="about">
-  <div>
-    <h2>Welcome to Grace Ministry</h2>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Welcome to ECCLESIA Ministry</h1>
     <p>
-      We are a Christ-centered ministry dedicated to sharing the Gospel of Jesus Christ,
-      teaching the Word of God, and serving people with love, truth, and compassion.
-    </p>
-    <p>
-      Our mission is to help people grow spiritually, discover purpose, and live a life
-      rooted in faith and grace.
+      A Christ-centered community focused on the Gospel of Jesus Christ,
+      spiritual growth, discipleship, and serving humanity with love and truth.
     </p>
   </div>
 
-  <img src="image.jpg" alt="Ministry Image" />
-</section>
-
-<section class="card" id="mission">
-  <h2>Our Mission</h2>
-  <p>
-    To spread the Gospel of Jesus Christ to all nations, disciple believers,
-    and support communities through faith-based teaching and service.
-  </p>
-</section>
-
-<section class="card" id="sermons">
-  <h2>Sermons & Teachings</h2>
-
+  <!-- GRID LINKS -->
   <div class="grid">
-    <div class="item">Walking in Faith</div>
-    <div class="item">Power of Prayer</div>
-    <div class="item">Grace and Salvation</div>
-    <div class="item">Living in the Word</div>
-    <div class="item">Holy Spirit Guidance</div>
-    <div class="item">Christian Purpose</div>
+
+    <div class="card">
+      <h3><a href="sermons.html">Sermons</a></h3>
+      <p>Explore Bible teachings and messages.</p>
+    </div>
+
+    <div class="card">
+      <h3><a href="#">Prayer Requests</a></h3>
+      <p>Submit your prayer needs anytime.</p>
+    </div>
+
+    <div class="card">
+      <h3><a href="#">Bible Study</a></h3>
+      <p>Deep study of Scripture and truth.</p>
+    </div>
+
   </div>
-</section>
 
-<section class="card" id="values">
-  <h2>Core Values</h2>
-  <ul>
-    <li>Faith in Jesus Christ</li>
-    <li>Truth and Integrity</li>
-    <li>Love and Compassion</li>
-    <li>Service to Others</li>
-    <li>Spiritual Growth</li>
-  </ul>
-</section>
+  <!-- NEWS FEED -->
+  <div class="news">
+    <h2>Latest Updates</h2>
+    <div class="news-feed">
+      <div class="news-item"><a href="#">New Sunday service schedule released</a></div>
+      <div class="news-item"><a href="#">Bible study group expanding globally</a></div>
+      <div class="news-item"><a href="#">Prayer night every Friday</a></div>
+      <div class="news-item"><a href="#">Youth ministry launching soon</a></div>
+      <div class="news-item"><a href="#">Mission outreach program update</a></div>
+      <div class="news-item"><a href="#">Community service announcement</a></div>
+    </div>
+  </div>
 
-<section class="card" id="contact">
-  <h2>Contact Us</h2>
+  <!-- TESTIMONIAL -->
+  <div class="testimonial-box">
+    <h2>Testimonials</h2>
 
-  <form onsubmit="fakeSend(event)">
-    <input type="text" placeholder="Your Name" required style="width:100%;padding:10px;margin:5px 0;">
-    <input type="email" placeholder="Email" style="width:100%;padding:10px;margin:5px 0;">
-    <textarea placeholder="Message" style="width:100%;padding:10px;margin:5px 0;"></textarea>
-    <button style="padding:10px 15px;background:var(--primary);color:#fff;border:none;border-radius:8px;">
-      Send
-    </button>
-  </form>
-</section>
-
-<footer>
-  © 2026 Grace Ministry. All rights reserved.
-</footer>
+    <div class="testimonial active">“ECCLESIA helped me grow in faith and understanding of God’s Word.”</div>
+    <div class="testimonial">“A true place of spiritual healing and direction.”</div>
+    <div class="testimonial">“The teachings are clear, powerful, and life-changing.”</div>
+  </div>
 
 </div>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/9710567754812" target="_blank" class="whatsapp-container">
-  <div class="whatsapp-text">Message us for prayer or support</div>
-  <div class="floating-whatsapp">💬</div>
-</a>
-
 <script>
-function fakeSend(e){
-  e.preventDefault();
-  alert("Message sent. We will pray for you and respond soon.");
-}
+
+// TESTIMONIAL ROTATION
+let index = 0;
+const testimonials = document.querySelectorAll(".testimonial");
+
+setInterval(() => {
+  testimonials[index].classList.remove("active");
+  index = (index + 1) % testimonials.length;
+  testimonials[index].classList.add("active");
+}, 3000);
+
 </script>
 
 </body>
