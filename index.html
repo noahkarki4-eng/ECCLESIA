@@ -3,111 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECCLESIA - Home</title>
+<title>Ecclesia - Home</title>
 
 <style>
-
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{display:flex;background:#f4f7f6;color:#1f2937;}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f1724;
+  color:#fff;
+  display:flex;
+}
 
 /* SIDEBAR */
 .sidebar{
   width:260px;
+  background:#111c2e;
   height:100vh;
-  background:#0f172a;
-  color:white;
   position:fixed;
+  left:0;
+  top:0;
   padding:20px;
-  overflow:auto;
+  overflow-y:auto;
 }
-.sidebar h2{color:#38bdf8;margin-bottom:20px;}
+.sidebar h2{color:#00f5d4}
 .sidebar a{
   display:block;
-  color:white;
-  text-decoration:none;
   padding:10px;
-  margin:6px 0;
+  color:#fff;
+  text-decoration:none;
+  margin:5px 0;
   border-radius:6px;
-  background:#1e293b;
 }
-.sidebar a:hover{background:#38bdf8;color:#000;}
+.sidebar a:hover{background:#00f5d4;color:#000}
 
 /* MAIN */
 .main{
-  margin-left:260px;
+  margin-left:280px;
   padding:20px;
   width:100%;
 }
 
 /* HERO */
 .hero{
-  background:#ffffff;
-  padding:20px;
+  padding:40px;
+  background:#1b2a41;
   border-radius:10px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
-.hero h1{color:#0f172a;}
-.hero p{margin-top:10px;line-height:1.6;}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:20px;
-}
-.card{
-  background:#fff;
-  padding:15px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-.card a{text-decoration:none;color:#0ea5e9;font-weight:bold;}
 
 /* NEWS */
 .news{
   margin-top:20px;
-  background:#fff;
+  background:#162235;
   padding:15px;
   border-radius:10px;
+  height:180px;
   overflow:hidden;
 }
-.news-feed{
-  display:flex;
-  flex-direction:column;
-  animation:scroll 12s linear infinite;
-}
 .news-item{
-  padding:10px;
-  border-bottom:1px solid #eee;
+  padding:8px;
+  border-bottom:1px solid #333;
+  animation:scrollNews 10s linear infinite;
 }
-@keyframes scroll{
-  0%{transform:translateY(0);}
-  100%{transform:translateY(-50%);}
+@keyframes scrollNews{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-50%)}
 }
 
 /* TESTIMONIAL */
 .testimonial-box{
   margin-top:20px;
-  background:#fff;
+  background:#1b2a41;
   padding:20px;
   border-radius:10px;
 }
 .testimonial{
   display:none;
-  font-style:italic;
 }
-.testimonial.active{display:block;animation:fade 1s;}
-@keyframes fade{from{opacity:0}to{opacity:1}}
+.testimonial.active{
+  display:block;
+}
+
+/* FOOTER */
+footer{
+  margin-top:30px;
+  text-align:center;
+  color:#aaa;
+}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .sidebar{position:relative;width:100%;height:auto;}
-  .main{margin-left:0;}
-  .grid{grid-template-columns:1fr;}
+@media(max-width:800px){
+  .sidebar{position:relative;width:100%;height:auto}
+  .main{margin-left:0}
 }
-
 </style>
 </head>
 
@@ -115,84 +102,66 @@ body{display:flex;background:#f4f7f6;color:#1f2937;}
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-  <h2>ECCLESIA</h2>
+  <h2>Ecclesia</h2>
   <a href="index.html">Home</a>
-  <a href="sermons.html">Sermons</a>
-  <a href="#">About (link)</a>
-  <a href="#">Prayer (link)</a>
-  <a href="#">Events (link)</a>
-  <a href="#">Donate (link)</a>
+  <a href="about.html">About</a>
+  <a href="#mission">Mission</a>
+  <a href="#sermons">Sermons</a>
+  <a href="#events">Events</a>
   <a href="#contact">Contact</a>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-  <!-- HERO -->
   <div class="hero">
-    <h1>Welcome to ECCLESIA Ministry</h1>
-    <p>
-      A Christ-centered community focused on the Gospel of Jesus Christ,
-      spiritual growth, discipleship, and serving humanity with love and truth.
-    </p>
+    <h1>Welcome to Ecclesia</h1>
+    <p>A place of faith, truth, and community.</p>
   </div>
 
-  <!-- GRID LINKS -->
-  <div class="grid">
-
-    <div class="card">
-      <h3><a href="sermons.html">Sermons</a></h3>
-      <p>Explore Bible teachings and messages.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="#">Prayer Requests</a></h3>
-      <p>Submit your prayer needs anytime.</p>
-    </div>
-
-    <div class="card">
-      <h3><a href="#">Bible Study</a></h3>
-      <p>Deep study of Scripture and truth.</p>
-    </div>
-
+  <!-- MISSION -->
+  <div id="mission" class="hero">
+    <h2>Mission</h2>
+    <p>Spreading truth, building faith, and serving people worldwide.</p>
   </div>
 
-  <!-- NEWS FEED -->
-  <div class="news">
-    <h2>Latest Updates</h2>
-    <div class="news-feed">
-      <div class="news-item"><a href="#">New Sunday service schedule released</a></div>
-      <div class="news-item"><a href="#">Bible study group expanding globally</a></div>
-      <div class="news-item"><a href="#">Prayer night every Friday</a></div>
-      <div class="news-item"><a href="#">Youth ministry launching soon</a></div>
-      <div class="news-item"><a href="#">Mission outreach program update</a></div>
-      <div class="news-item"><a href="#">Community service announcement</a></div>
-    </div>
+  <!-- NEWS -->
+  <div id="events" class="news">
+    <h3>Latest News</h3>
+    <div class="news-item">New Sunday gathering announced</div>
+    <div class="news-item">Bible study sessions every Wednesday</div>
+    <div class="news-item">Community outreach program launched</div>
+    <div class="news-item">Youth fellowship expanding globally</div>
   </div>
 
   <!-- TESTIMONIAL -->
   <div class="testimonial-box">
-    <h2>Testimonials</h2>
+    <h3>Testimonials</h3>
 
-    <div class="testimonial active">“ECCLESIA helped me grow in faith and understanding of God’s Word.”</div>
-    <div class="testimonial">“A true place of spiritual healing and direction.”</div>
-    <div class="testimonial">“The teachings are clear, powerful, and life-changing.”</div>
+    <div class="testimonial active">“Ecclesia changed my life spiritually.” – John</div>
+    <div class="testimonial">“A strong community of faith and truth.” – Sarah</div>
+    <div class="testimonial">“I found peace and direction here.” – Daniel</div>
   </div>
 
+  <!-- CONTACT -->
+  <div id="contact" class="hero">
+    <h2>Contact</h2>
+    <p>Email: info@ecclesia.com (placeholder)</p>
+  </div>
+
+  <footer>© 2026 Ecclesia. All rights reserved.</footer>
 </div>
 
 <script>
-
-// TESTIMONIAL ROTATION
+// testimonial slider
 let index = 0;
-const testimonials = document.querySelectorAll(".testimonial");
+const items = document.querySelectorAll(".testimonial");
 
-setInterval(() => {
-  testimonials[index].classList.remove("active");
-  index = (index + 1) % testimonials.length;
-  testimonials[index].classList.add("active");
+setInterval(()=>{
+  items[index].classList.remove("active");
+  index = (index + 1) % items.length;
+  items[index].classList.add("active");
 }, 3000);
-
 </script>
 
 </body>
